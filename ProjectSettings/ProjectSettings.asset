@@ -455,6 +455,10 @@ PlayerSettings:
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   cloudProjectId: 1c52c955-95c1-4d55-b900-9b4d457e9cc5
   projectName: MG_SpaceShooter_WEB_20170424

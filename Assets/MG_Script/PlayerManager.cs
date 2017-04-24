@@ -10,14 +10,27 @@ public class PlayerManager : MonoBehaviour {
     public float moveSpeed;
     public Boundary canMoveArea;
     public float rotateValue;
+    public GameObject bulletPre;
+    public Transform shootPoint;
+    public float offsetShootTime;
     private float horizontalValue;
     private float verticalValue;
     private Vector3 moveDirection;
     private Rigidbody rb;
+    private float nextShootTime;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButton("Fire1") && Time.time > nextShootTime)
+        {
+            Instantiate(bulletPre, shootPoint.position, shootPoint.rotation);
+            nextShootTime = Time.time + offsetShootTime;
+        }
     }
 
     private void FixedUpdate()
