@@ -18,16 +18,19 @@ public class PlayerManager : MonoBehaviour {
     private Vector3 moveDirection;
     private Rigidbody rb;
     private float nextShootTime;
+    private AudioSource audioS;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        audioS = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (Input.GetButton("Fire1") && Time.time > nextShootTime)
         {
+            audioS.Play();
             Instantiate(bulletPre, shootPoint.position, shootPoint.rotation);
             nextShootTime = Time.time + offsetShootTime;
         }
